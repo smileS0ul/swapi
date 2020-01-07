@@ -3,6 +3,7 @@ import SwapiService from "../../services/swapi-service";
 import './random-planet.css';
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator/error-indicator";
+import PropsTypes from 'prop-types';
 
 export default class RandomPlanet extends Component {
 
@@ -17,9 +18,20 @@ export default class RandomPlanet extends Component {
     //     updateInterval: 10000
     // };
 
+    static propTypes = {
+        updateInterval: PropsTypes.number
+        // updateInterval: (props, propName, componentName) => {
+        //     const value = props[propName];
+        //     if (typeof value === "number" && !isNaN(value)) {
+        //         return null;
+        //     }
+        //     return new TypeError(`${componentName}: ${propName} must be a number`);
+        //
+        // }
+    };
+
     componentDidMount() {
         const { updateInterval } = this.props;
-        console.log(this.props);
         this.updatePlanet();
         this.idInterval = setInterval(this.updatePlanet, updateInterval);
     }

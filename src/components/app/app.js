@@ -44,7 +44,7 @@ export default class App extends Component {
         if (this.state.hasError)
             return <ErrorIndicator/>;
 
-        const randomPlanet = this.state.hide_planet ? '' : <RandomPlanet hide_planet={false} updateInterval={11000}/>;
+        const randomPlanet = this.state.hide_planet ? '' : <RandomPlanet hide_planet={false} updateInterval={10000}/>;
 
         return (
             <div>
